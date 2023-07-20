@@ -37,4 +37,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: gesiscss/repo2docker_base_image
+          tags: gesiscss/repo2docker_base_image_with_quarto
