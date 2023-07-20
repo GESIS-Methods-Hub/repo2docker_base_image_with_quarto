@@ -2,10 +2,8 @@ name: Publish Docker image
 
 on:
   push:
-    branches:
-      - main
-  schedule:
-    - cron: '0 0 * * *'
+    tags:
+      - v*
 
 jobs:
   push_to_registry:
