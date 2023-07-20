@@ -1,4 +1,4 @@
-FROM buildpack-deps:23.04-curl
+FROM docker.io/library/buildpack-deps:bionic
 RUN apt update \
     && apt install -y curl \
     && rm -rf /var/lib/apt/lists/* \
