@@ -39,6 +39,4 @@ jobs:
         with:
           context: .
           push: true
-          tags:
-            - gesiscss/repo2docker_base_image_with_quarto
-            - gesiscss/repo2docker_base_image_with_quarto:$RELEASE_VERSION
+          tags: gesiscss/repo2docker_base_image_with_quarto,gesiscss/repo2docker_base_image_with_quarto:$RELEASE_VERSION
