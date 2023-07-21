@@ -14,9 +14,17 @@ jobs:
         name: Check out the repo
         uses: actions/checkout@v3
 
-      - 
-        name: Set env
-        run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+      -
+        name: Docker meta
+        id: meta
+        uses: docker/metadata-action@v4
+        with:
+          # list of Docker images to use as base name for tags
+          images: |
+            gesiscss/repo2docker_base_image_with_quarto
+          # generate Docker tags based on the following events/attributes
+          tags: |
+            type=ref,event=tag
 
       -
         name: Set up QEMU
@@ -39,4 +47,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: gesiscss/repo2docker_base_image_with_quarto,gesiscss/repo2docker_base_image_with_quarto:$RELEASE_VERSION
+          tags: ${{ steps.meta.outputs.tags }}
